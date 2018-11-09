@@ -8,22 +8,20 @@ var youTubePlaylistID = youTubePlaylist_ID;
 var youTubeFristVideoID = firstPlaylistVideo_ID;
 
 //youTubePlaylistID.push(youTubePlaylist_ID);
-
 // Playlist player variable. Initializes a player object that YouTube's API needs and will use.
 var player;
 var playgroundHeight;
-var MAXPLAYERHEIGHT = 720;  //480?
+var MAXPLAYERHEIGHT = 480;  //480?
 var vidPlayerHeight = 480;  
 var vidPlayerWidth = "98%";
 var vidPageOrientation = true; // presenation orientation
-var videoHeightMDesktop = "60%"; //video max height for desktop area as a percentage 
+var videoHeightMDesktop = "60%";  //video max height for desktop area as a percentage 
 var videoWidthMobileMax = "60%"; //video max width for mobile device area as a percentage 
 var mobileLandscapeBreak = 800; //768px or 42em
-var mobilePortraitBreak = 320; //642px or 42em
+var mobilePortraitBreak = 320;  //642px or 42em
+var mobilePortraitBreak = 320;  //642px or 42em
 
 // Get the videos in the playlist (stored in an array) at the time we had planned toput this in an array, later thought less of it.  Will remove it later
-
-
 var ytPlaylists = [{
 		videoPlayerId: 'ytplayer0',
 		height: vidPlayerHeight,
@@ -110,7 +108,7 @@ function main() {
 // Gets the iframe dimensions.
 function pageHeightWidth() {
 	"use strict";
-	
+
 	var w = window,
 		d = document,
 		e = d.documentElement,
@@ -129,8 +127,6 @@ function playerPresentation() {
 	"use strict";
 	var vidPagePortrait;
 	pageHeightWidth();
-	
-
 
 	if (vidPlayerHeight > vidPlayerWidth) {
 		vidPagePortrait = true;
@@ -194,9 +190,7 @@ function buildHTMLPlayerDivs() {
 		var $newdiv1 = "<div id='= " + playlistsContainerID + "'  class='ia7__row'> <div class='ia7__yt-video-playlist'> <div class='ia7__video-column'> <div class='ia7__yt-video' id='ytplayer" + i + "' style='height: " + 500 + ";' width: " + vidPlayerWidth + ";></div> <div class='ia7__yt-vid-description' style=' width: " + vidPlayerWidth + ";'></div> </div> <div class='ia7__playlist-column'> <h4 class='ia7__playlist-title ma__comp-heading'>Playlist</h4> <div class='ia7__playlist-container' style=' width: " + vidPlayerWidth + ";'> <div class='ia7__playlist-results ia7__row'> </div> </div> </div> </div> </div>";
 
 		htmlTarget.append($newdiv1, $newContainer);
-
-
-
+		//console.log("pass: " + playlistsContainerID + "/n" + $newdiv1);
 	}
 
 }
@@ -240,7 +234,7 @@ function buildPlaylist(playlistID, videoPlayerId, videoID) {
 		function (data) {
 			$.each(data.items, function (i, item) {
 				playlistTitle = item.snippet.title; // Gets the playlist title
-				titleDIV.text("Playlist: " + playlistTitle); // Sets the title div to be that title
+				titleDIV.text(playlistTitle + " playlist" ); // Sets the title div to be that title
 			});
 		}
 	);
@@ -257,7 +251,7 @@ function buildPlaylist(playlistID, videoPlayerId, videoID) {
 			$.each(data.items, function (i, item) {
 				// Adds the video ID to the ia7__playlist-results li item as a data- attribute to use for later when clicking on things,
 				// and populates the playlist container with the videos' titles.
-				playlistDIV.append('<div class="slideContainer25"><div class="ia7__playlist-item" tabindex="' + (i + 100) + '"><a data-video_id=' + item.snippet.resourceId.videoId + ' class=" "><div class="ia7__playlist-item__thumbnail"><img class="ma__image" alt="' + item.snippet.title + '" title="' + item.snippet.description + '" src="' + item.snippet.thumbnails.medium.url + '" style=" clear: both;"></div><div class="ia7__playlist-item__title-container">' + item.snippet.title + '</div></div></a></div>');
+				playlistDIV.append('<div class="slideContainer25"><div id=" ia7__playlist-item' + (i + 100) + '" class="ia7__playlist-item" tabindex="' + (i + 100) + '"><a data-video_id=' + item.snippet.resourceId.videoId + ' class=" "><div class="ia7__playlist-item__thumbnail"><img class="ma__image" alt="' + item.snippet.title + '" title="' + item.snippet.description + '" src="' + item.snippet.thumbnails.medium.url + '" style=" clear: both;"></div><div class="ia7__playlist-item__title-container">' + item.snippet.title + '</div></div></a></div>');
 
 				// Also populates the video description divs in the same call, to save on API calls.				
 				descriptionDIV.append("<div class='ia7__yt-description-content' data-video_id='" + item.snippet.resourceId.videoId + "' style='display: none;'>" + item.snippet.description + "</div>");
@@ -302,6 +296,9 @@ function playlistClick() {
 
 	description.show(); // Shows this one.
 	description.siblings().hide(); // Hides the rest of the siblings.
+	
+	document.body.scrollTop = 0; // Scrolls to top of document (for Safari)
+    document.documentElement.scrollTop = 0; // Scrolls to top of document (for Chrome, Firefox, IE and Opera)
 }
 
 // Works with the YouTube API to create the YouTube video player and playlist.
