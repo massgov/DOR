@@ -1,4 +1,4 @@
-# ytplaylist_player
+
 
 YouTube Playlist Player   written by Iris Wang and Alan Sweeney under direction of Peter Olejnik Copyrighted 2018 Version 1.0 Sept 1, 2018.  You can redistribute and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 

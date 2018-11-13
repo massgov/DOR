@@ -1,3 +1,4 @@
+
 @charset "utf-8";
 body {
 /*	overflow: hidden;
@@ -75,6 +76,7 @@ body {
 	padding: 0.75em;
 		height: 52vh;
 	height: 100%;
+		justify-content: space-evenly;
 /*	position: absolute;
 	padding-right: 17px; /* Increase/decrease this value for cross-browser compatibility 
     box-sizing: content-box;  So the width will be 100% + 17px */
@@ -218,7 +220,7 @@ body {
 }
 
 /* This is the responsive view for when it is on a mobile device (tablet or phone or anything that isn't desktop) but in portrait mode. */
-@media screen and (orientation: portrait) and (max-width: 500px) {
+@media screen and (orientation: portrait) and (max-width: 696px) {
 	.ia7__video-column, .ia7__playlist-column {
 		width: 100%;
 		padding: 0.3em;
@@ -252,7 +254,7 @@ body {
 
 
 /* This is the responsive view for when it is on a mobile device (tablet or phone or anything that isn't desktop) but in portrait mode. */
-@media (max-width: 600px) {
+@media (max-width: 696px) {
 	.ia7__video-column, .ia7__playlist-column {
 		width: 100%;
 
@@ -283,5 +285,4 @@ body {
 		font-size: 1em;
 	}
 }
-
 
