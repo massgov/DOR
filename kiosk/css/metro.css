@@ -112,7 +112,8 @@ body {
 	opacity: 0.25;
 	filter: alpha(opacity=25);
 	cursor: pointer;
-	background: url(h"images/sprite.png) no-repeat -999px 0;
+	background-image: url("paper.gif");
+    background-repeat: no-repeat;
 }
 
 .metro-layout .header .controls span:hover {
@@ -394,8 +395,9 @@ h1 {
 	padding-left: auto;
 	padding-right: auto;
 	margin: auto;
-	width: 1000px;
+
 	max-width: 1000px;
+		width: 1000px;
 	background-color: white;
 }
 .boxfont {
