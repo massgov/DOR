@@ -11,15 +11,15 @@ var youTubeFristVideoID = firstPlaylistVideo_ID;
 // Playlist player variable. Initializes a player object that YouTube's API needs and will use.
 var player;
 var playgroundHeight;
-var MAXPLAYERHEIGHT = 480;  //480?
-var vidPlayerHeight = 480;  
+var MINPLAYERHEIGHT = 360; //480?
+var MAXPLAYERHEIGHT = 480; //480?
+var vidPlayerHeight = 480;
 var vidPlayerWidth = "98%";
 var vidPageOrientation = true; // presenation orientation
-var videoHeightMDesktop = "60%";  //video max height for desktop area as a percentage 
+var videoHeightMDesktop = "60%"; //video max height for desktop area as a percentage 
 var videoWidthMobileMax = "60%"; //video max width for mobile device area as a percentage 
 var mobileLandscapeBreak = 800; //768px or 42em
-var mobilePortraitBreak = 320;  //642px or 42em
-var mobilePortraitBreak = 320;  //642px or 42em
+var mobilePortraitBreak = 320; //642px or 42em
 
 // Get the videos in the playlist (stored in an array) at the time we had planned toput this in an array, later thought less of it.  Will remove it later
 var ytPlaylists = [{
@@ -36,14 +36,14 @@ var ytPlaylists = [{
 						playlistId: "PLfBnwDVE7DgHj-t0DrQSgxbuAq5xWgbDh" }*/
 ];
 
-	
+
 
 
 // Functions that load Javascript files and CSS files to source HTML file, including jQuery.
 var Loader = function () {};
 Loader.prototype = {
 	require: function (scripts, callback) {
-		this.loadCount = 0; 
+		this.loadCount = 0;
 		this.totalRequired = scripts.length;
 		this.callback = callback;
 
@@ -95,11 +95,11 @@ function main() {
 
 		// Binds the click events to every <a> that is clicked in the div 'ia7__playlist-results', so that on click, the associated YouTube video player for that container has its src changed.
 		$('.ia7__playlist-results').on('click', 'a', playlistClick);
-	
-		
-		$( window ).resize(function() {
-  			playerPresentation();
-		});	
+
+
+		$(window).resize(function () {
+			playerPresentation();
+		});
 
 
 	});
@@ -140,22 +140,22 @@ function playerPresentation() {
 		vidPagePortrait = true;
 	}
 
-	if (document.getElementById('ytplayer0')) {
-	
-			
- 	var tempHeight = $("#ytplayer0").width() * 9/16 ;
-		
-			if(MAXPLAYERHEIGHT>tempHeight){
-			
-					updatePlayerHeight(tempHeight);
-		console.log('max height global : ' + MAXPLAYERHEIGHT + 'temp height: ' + tempHeight );
-				
-			}
-	
-	
+
+
+	var tempHeight = Math.round($("#ytplayer0").width() * 9 / 16);
+
+	if (MAXPLAYERHEIGHT > tempHeight) {
+
+		updatePlayerHeight(tempHeight);
+		console.log('max height global : ' + MAXPLAYERHEIGHT + 'temp height: ' + tempHeight);
+
+	}else if (MAXPLAYERHEIGHT < tempHeight){
+		updatePlayerHeight(MAXPLAYERHEIGHT);
 	} else {
-		console.log("problem setting height see function playerPresentation");
+		updatePlayerHeight(MAXPLAYERHEIGHT);
+		console.log ("Houston we have a playarea dimensional error. My goodness!");
 	}
+
 
 
 }
@@ -163,9 +163,9 @@ function playerPresentation() {
 // YouTube playlist function to pause the video.
 function updatePlayerHeight(newPlayerHeight) {
 	"use strict";
-	
- $("#ytplayer0").height(newPlayerHeight);
-	console.log('what is happening: ' + newPlayerHeight );
+
+	$("#ytplayer0").height(newPlayerHeight);
+	console.log('newPlayerHeight is: ' + newPlayerHeight);
 }
 
 
@@ -234,7 +234,7 @@ function buildPlaylist(playlistID, videoPlayerId, videoID) {
 		function (data) {
 			$.each(data.items, function (i, item) {
 				playlistTitle = item.snippet.title; // Gets the playlist title
-				titleDIV.text(playlistTitle + " playlist" ); // Sets the title div to be that title
+				titleDIV.text(playlistTitle + " playlist"); // Sets the title div to be that title
 			});
 		}
 	);
@@ -296,9 +296,9 @@ function playlistClick() {
 
 	description.show(); // Shows this one.
 	description.siblings().hide(); // Hides the rest of the siblings.
-	
+
 	document.body.scrollTop = 0; // Scrolls to top of document (for Safari)
-    document.documentElement.scrollTop = 0; // Scrolls to top of document (for Chrome, Firefox, IE and Opera)
+	document.documentElement.scrollTop = 0; // Scrolls to top of document (for Chrome, Firefox, IE and Opera)
 }
 
 // Works with the YouTube API to create the YouTube video player and playlist.
