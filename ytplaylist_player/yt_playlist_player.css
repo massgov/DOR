@@ -110,11 +110,11 @@ body {
 	background-color: #43956f;
 	color: #fff;
 	padding: 0.4em;
-	font-size: 1.5vh;
+	font-size: 1rem;
 	
 	line-height: 1.2;
 	
-	min-height: 3rem;
+	min-height: 3.2rem;
 	align-items: center;
 
 	word-break: break-word;

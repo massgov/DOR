@@ -19,7 +19,8 @@ var vidPageOrientation = true; // presenation orientation
 var videoHeightMDesktop = "60%"; //video max height for desktop area as a percentage 
 var videoWidthMobileMax = "60%"; //video max width for mobile device area as a percentage 
 var mobileLandscapeBreak = 800; //768px or 42em
-var mobilePortraitBreak = 320; //642px or 42em
+var lastTempHeight = 0; //time checked height change.  
+var redundentCheckNum = 0;
 
 // Get the videos in the playlist (stored in an array) at the time we had planned toput this in an array, later thought less of it.  Will remove it later
 var ytPlaylists = [{
@@ -99,6 +100,7 @@ function main() {
 
 		$(window).resize(function () {
 			playerPresentation();
+			playerPresentationRedundentCheck()
 		});
 
 
@@ -143,20 +145,39 @@ function playerPresentation() {
 
 
 	var tempHeight = Math.round($("#ytplayer0").width() * 9 / 16);
+	if (lastTempHeight === tempHeight) {
+		console.log ("Plus redundentCheckNum" + redundentCheckNum++);
+		return true;
+	} else {
+		console.log ("Minus redundentCheckNum" + redundentCheckNum--);
+	}
 
 	if (MAXPLAYERHEIGHT > tempHeight) {
 
 		updatePlayerHeight(tempHeight);
-		console.log('max height global : ' + MAXPLAYERHEIGHT + 'temp height: ' + tempHeight);
+		console.log('MAXPLAYERHEIGHT : ' + MAXPLAYERHEIGHT + 'temp height: ' + tempHeight);
 
-	}else if (MAXPLAYERHEIGHT < tempHeight){
+	} else if (MAXPLAYERHEIGHT < tempHeight) {
+
+		tempHeight = MAXPLAYERHEIGHT;
 		updatePlayerHeight(MAXPLAYERHEIGHT);
-	} else {
-		updatePlayerHeight(MAXPLAYERHEIGHT);
-		console.log ("Houston we have a playarea dimensional error. My goodness!");
+	} else if (MAXPLAYERHEIGHT === tempHeight) {
+
+		console.log("Houston we have a playarea dimensional error. My goodness!");
+		return true;
+
 	}
 
 
+
+}
+
+function playerPresentationRedundentCheck() {
+	"use strict";
+	/*console.log("start redundent check");*/
+	console.log("start redundent check");
+	playerPresentation();
+	setInterval(20, 100);
 
 }
 
