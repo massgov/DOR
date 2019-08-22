@@ -136,6 +136,7 @@ body {
 }
 .ia7__yt-vid-description {
 	background-color: #f2f2f2;
+
 	min-height: 2em;
 	margin-bottom: 1em;
 }
@@ -143,6 +144,15 @@ body {
 	
 	font-weight: 600;
 	padding: 0.8em;
+
+	
+ overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 2;
+	   line-height: 1.3;   
+	   max-height: 2em;     
 }
 .ia7__yt-description-mobetitle {
 	font-size: 0.6em;
@@ -286,3 +296,158 @@ body {
 }
 
 
+/* ACS 190821 This is the responsive view for when it is on a Internet Explorer or some terribly backwards browser that NO one should be using especially state employees... */
+
+@media screen\0  {
+
+	
+	.ia7__video-column, .ia7__playlist-column {
+		width: 100%;
+		padding: 0.3em;
+	}
+	.ia7__playlist-container {
+		display: flex;
+		padding: 0.75em;
+	}
+	.ia7__playlist-item__title-container {
+		min-height: 2rem;
+		height-max: 4;
+	}
+	
+	.ia7__playlist-results {
+		
+		display: block;
+	}
+	
+	.ia7__yt-description-content {
+		font-size: 0.7em;
+	}
+	.ia7__row {
+		flex-wrap: none;
+
+		float: none;
+	}
+
+	
+}
+
+
+
+	
+	@media screen\0  {
+	
+		.ia7__video-column, .ia7__playlist-column {
+
+		
+	}
+
+}
+@media screen and (min-width: 697px) and (max-width: 3000px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	
+	
+
+		
+		.slideContainer25, .slideContainer33 {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 400px;
+		flex: 0 0 400px;
+		max-width: 400px;
+				max-height: 300px;
+		margin: 10px;
+			position: relative;
+			float: left;
+		
+	}
+	.ia7__playlist-item__title-container{
+		
+		display: none;
+	}
+	
+	
+	.ia7__playlist-item {
+		box-shadow: 0 0 15px rgba(63, 127, 191,.20);
+	}
+	
+	.ia7__video-column, .ia7__playlist-column {
+		width: 100%;
+		padding: 0.3em;
+	}
+	.ia7__playlist-container {
+		display: flex;
+		padding: 0.75em;
+	}
+	.ia7__playlist-item__title-container {
+		min-height: 2rem;
+		height-max: 4;
+	}
+	
+	.ia7__playlist-results {
+		
+		display: block;
+	}
+	
+	.ia7__yt-description-content {
+		font-size: 0.7em;
+	}
+	.ia7__row {
+		flex-wrap: none;
+
+		float: none;
+	}
+
+}
+
+/*
+@media (screen\0)  and (max-height: 48em) {
+	.ia7__video-column {
+		width: 66%;
+		padding: 0.3em;
+	}
+	.ia7__playlist-column {
+		width: 30%;
+		padding: 0.3em;
+	}
+	.ia7__playlist-container {
+		display: flex;
+		padding: 0.75em;
+		height: 80vh;
+	}
+	.ia7__playlist-item__title-container {
+		
+		min-height: 2rem;
+		height-max: 4;
+		
+	}
+	.slideContainer25, .slideContainer33 {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 100%;
+		flex: 0 0 100%;
+		max-width: 100%;
+		padding: 0.4em;
+	}
+	.ia7__playlist-item__thumbnail, .ia7__playlist-item__thumbnail img {
+		display: none;
+	}
+	.ia7__yt-description-content {
+		font-size: 0.7em;
+	}
+}
+
+@media (screen\0)  and (orientation: portrait) {
+	.ia7__video-column, .ia7__playlist-column {
+		width: 100%;
+		padding: 0.3em;
+	}
+	.ia7__playlist-container {
+		display: flex;
+		padding: 0.75em;
+	}
+	.ia7__playlist-item__title-container {
+		min-height: 2rem;
+		height-max: 4;
+	}
+	
+	.ia7__yt-description-content {
+		font-size: 0.7em;
+	}
+}*/
