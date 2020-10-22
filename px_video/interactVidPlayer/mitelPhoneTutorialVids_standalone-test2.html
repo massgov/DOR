@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta charset="utf-8">
+<link rel="stylesheet" href="/_dont_publish/github dor mirror/DOR/fonts/fontawesome-free-5.0.9/web-fonts-with-css/css/fontawesome-all.min.css">
+<script src="/bootstrap/js/jquery.min.js"></script>
+<title>Mitel Tutorial Videos</title>
+
+<link rel="stylesheet" href="../css/px-video-responsive.css" />
+<style>
+	
+	
+	.videoBorder {
+	border: 2px solid #333;
+	border-radius: 3px;
+	box-shadow: 5px 10px 3px #bbb;
+}
+	.safetywrapper {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	}
+	.safety_col_full {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+
+</style>
+</head>
+
+<body>
+  <!--<section id="mainContent" class="container-fluid clearfix white  ">-->
+  
+  <div class="safetywrapper">
+    <div class="safety_col_full">
+      <div class="page-title ">
+        <h1 class="text-center">MiCollab Videos and Resources </h1>
+      </div>
+      <p>MiCollab is a communications tool that allows users  from Tax and CSE to make and receive phone calls from their telework computer  or smartphone. Individuals in Tax and CSE will receive an email with an  authentication key. This email will come from &ldquo;noreply@mitel.easydeploy.net&rdquo;.  To learn more about setting up your MiCollab softphone, Tax and CSE individuals  should see:</p>
+      <ul>
+        <li><a href="../../../../../multimedia/videos/iframes/MicollabDesktopUserGuide.pdf">MiCollab Desktop User Guide</a></li>
+        <li><a href="../../../../../multimedia/videos/iframes/MicollabCheatSheetv2092720.docx"> Micollab Cheat Sheet </a></li>
+      </ul>
+      <p>Please note: MiCollab is currently only available to Tax and CSE  users. </p>
+    </div>
+  </div>
+  <div class="row justify-content-between m-3 ">
+    <div class="col-sm-12 col-md-5 col-lg-5 pl-2 pr-2 videoBorder">
+      <h2 class="text-center">MiCollab Intro </h2>
+      <div class="px-video-container " id="myvid">
+        <div class="px-video-img-captions-container">
+          <div class="px-video-captions hide"></div>
+          <div class="px-video-wrapper">
+            <video poster="/multimedia/videos/2020/images/200925_MitelIntro.jpg" class="px-video" controls> 
+              <!-- video files -->
+              <source src="/multimedia/videos/2020/200925_MitelIntro.mp4" type="video/mp4" />
+              
+              <!-- text track file -->
+              <track kind="captions" label="English captions" src="/multimedia/videos/2020/captions/200925_MitelIntro.vtt" srclang="en" default />
+            </video>
+          </div>
+          <div class="playpause-button"></div>
+        </div>
+        <!-- end container for captions and video -->
+        <div class="px-video-controls"></div>
+      </div>
+    </div>
+    <div class="">&nbsp;
+      <p><br>
+      
+		<img src="../../smileyface.png" width="100px" alt=""/>      
+		<img src="../../fonts/px-video-fonts/px-video-sprite-responsive.png" alt=""/>        <br>
+        <br>
+        <br>
+      </p>
+    </div>
+
+    <div class="safety_col_full">
+      <h2 class="text-center">MiCollab Part 1 </h2>
+      <div class="px-video-container" id="secondvid">
+        <div class="px-video-img-captions-container">
+          <div class="px-video-captions hide"></div>
+          <div class="px-video-wrapper">
+            <video poster="/multimedia/videos/2020/images/200925_MitelPart1.jpg" class="px-video" controls>
+              <source src="/multimedia/videos/2020/200925_MitelPart1.mp4" type="video/mp4" />
+              <track kind="captions" label="English captions" src="/multimedia/videos/2020/captions/200925_MitelPart1.vtt" srclang="en" default />
+            </video>
+          </div>
+          <div class="playpause-button"></div>
+        </div>
+        <div class="px-video-controls"></div>
+      </div>
+    </div>
+    <div class="col-12 pt-4">
+      <p class=" font-weight-bold" ><br>
+        <br>
+        Last Updated:  October 7, 2020</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Ebd Page Wrapper --> 
+
+<!-- Add scripts after footer--> 
+
+<!-- insert post scripts here --> 
+
+<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-66850610-1', 'auto');
+		  ga('send', 'pageview');
+</script> 
+<script src="/bootstrap/js/special/video_player_extras_iris_v2.js"></script> 
+<script src="/bootstrap/js/special/px-video-responsive.js"></script> 
+<script>
+  // Initialize
+new InitPxVideo({
+  videoId: "myvid",
+  captionsOnDefault: false,
+  seekInterval: 20,
+  videoTitle: "Mitel Intro"
+});
+	
+	new InitPxVideo({
+  videoId: "secondvid",
+  captionsOnDefault: false,
+  seekInterval: 20,
+  videoTitle: "Mitel Part 1"
+});
+</script>
+</body>
+</html>
